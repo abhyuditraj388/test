@@ -11,6 +11,6 @@ func main() {
 	x := bufio.NewScanner(os.Stdin)
 	x.Scan()
 	y, _ := strconv.ParseInt(x.Text(), 10, 64)
-	fmt.Println(int64(y))
+	fmt.Println(int32(y))
 
 }
