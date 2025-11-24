@@ -2,19 +2,12 @@ package main
 
 import "fmt"
 
-type dog struct {
-	name string
-	age  int
-}
-
-func (d dog) bark() string {
-	return d.name + " is barking"
-}
-
 func main() {
 
-	tommy := dog{"tommy", 25}
+	fmt.Println(div(2, 0))
 
-	fmt.Println(tommy.bark())
+}
 
+func div(a, b float64) float64 {
+	return a / b
 }
