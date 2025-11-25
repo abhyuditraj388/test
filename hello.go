@@ -1,13 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
 
-	fmt.Println(div(2, 0))
+	http.HandleFunc("/", hello)
+	http.HandleFunc("/gg", func(w http.ResponseWriter, _ *http.Request) {
+		fmt.Fprintf(w, "you are in the endgame")
+	})
+	http.ListenAndServe(":8080", nil)
 
 }
 
-func div(a, b float64) float64 {
-	return a / b
+func hello(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "hello %s", r.URL.Path[1:])
 }
